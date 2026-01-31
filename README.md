@@ -47,6 +47,10 @@ src/
 
 ```bash
 npm install
-npm run dev
+```
 
+### Run the project
+
+```bash
+npm run dev
 ```
