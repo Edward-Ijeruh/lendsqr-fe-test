@@ -1,0 +1,26 @@
+@use "../../../styles/abstracts/variables" as *;
+
+.btn-primary {
+  width: 100%;
+  max-width: 447px;
+  height: 48px;
+  background-color: $primary-teal;
+  border-radius: 8px;
+  border: none;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    opacity 0.2s ease;
+
+  &:hover:not(:disabled) {
+    background-color: $primary-teal-light;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
