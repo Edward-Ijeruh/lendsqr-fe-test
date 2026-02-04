@@ -1,0 +1,187 @@
+@use "../../../styles/abstracts/variables" as *;
+@use "../../../styles/base/typography" as *;
+
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100px;
+  padding: 0 60px 0 30px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: $font-secondary;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+
+  &__left {
+    display: flex;
+    align-items: center;
+  }
+
+  &__menu-btn {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 16px;
+
+    span {
+      width: 20px;
+      height: 2px;
+      background-color: #213f7d;
+      display: block;
+      transition:
+        transform 0.3s ease,
+        opacity 0.2s ease;
+    }
+
+    &--open {
+      span:nth-child(1) {
+        transform: translateY(6px) rotate(45deg);
+      }
+
+      span:nth-child(2) {
+        opacity: 0;
+      }
+
+      span:nth-child(3) {
+        transform: translateY(-6px) rotate(-45deg);
+      }
+    }
+  }
+
+  &__logo {
+    width: 145px;
+    height: 30px;
+    object-fit: contain;
+  }
+
+  &__search {
+    flex: 1;
+    max-width: 400px;
+    height: 40px;
+    display: flex;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    overflow: hidden;
+
+    input {
+      flex: 1;
+      border: none;
+      padding: 0 16px;
+      font-size: 14px;
+      outline: none;
+      font-family: inherit;
+    }
+
+    button {
+      width: 56px;
+      background-color: #39cdcc;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+
+      img {
+        width: 14px;
+        height: 14px;
+      }
+    }
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+
+  &__docs {
+    font-size: 16px;
+    color: #213f7d;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  &__bell {
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+  }
+
+  &__profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+  }
+
+  &__avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__name {
+    font-size: 16px;
+    font-weight: 500;
+    color: #213f7d;
+  }
+
+  &__arrow {
+    width: 8px;
+    height: auto;
+  }
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .topbar {
+    &__search {
+      max-width: 300px;
+    }
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .topbar {
+    height: auto;
+    padding: 16px;
+    gap: 16px;
+
+    &__menu-btn {
+      display: flex;
+    }
+
+    &__logo {
+      width: 120px;
+      height: 30px;
+      object-fit: contain;
+    }
+
+    &__search {
+      display: none;
+    }
+
+    &__docs {
+      display: none;
+    }
+
+    &__name {
+      display: none;
+    }
+  }
+}

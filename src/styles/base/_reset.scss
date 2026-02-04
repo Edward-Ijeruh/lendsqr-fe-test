@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-/* Remove default browser password toggle */
+/* This removes the default browser password toggle (I usually do this because I prefer to create my own toggle button) */
 input[type="password"]::-webkit-password-toggle,
 input[type="password"]::-webkit-inner-spin-button,
 input[type="password"]::-webkit-outer-spin-button,

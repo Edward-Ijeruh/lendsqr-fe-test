@@ -1,8 +1,10 @@
 @use "../../styles/abstracts/variables" as *;
+@use "../../styles/base/typography" as *;
 
 .login {
   min-height: 100vh;
   padding: 40px 60px;
+  font-family: $font-primary;
 
   &__logo img {
     width: 174px;

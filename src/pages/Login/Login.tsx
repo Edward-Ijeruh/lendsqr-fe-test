@@ -38,7 +38,7 @@ export default function Login() {
 
       if (result.success) {
         toast.success("Login successful");
-        navigate("/dashboard");
+        navigate("/users");
       } else {
         toast.error(result.message || "Login failed");
       }

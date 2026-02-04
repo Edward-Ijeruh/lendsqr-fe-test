@@ -27,6 +27,7 @@ The goal of this project is to create a **pixel-perfect, responsive admin dashbo
 src/
 ├── assets/
 ├── components/
+├── mock/
 ├── pages/
 ├── services/
 ├── hooks/
