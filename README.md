@@ -1,7 +1,7 @@
 # Lendsqr Frontend Assessment
 
 This is the frontend engineering assessment for **Lendsqr**, built using **React, TypeScript, and SCSS**.  
-The goal of this project is to create a **pixel-perfect, responsive admin dashboard interface**, with Login, Dashboard, Users, and User Details pages.
+The goal of this project is to create a **pixel-perfect, responsive admin dashboard interface**, with Login, Users, and User Details pages.
 
 ---
 
@@ -37,7 +37,7 @@ src/
 ```
 
 - Each page/component has its own folder with `.tsx`, `.scss`, and `.test.tsx`
-- Shared SCSS concerns (variables, mixins, functions) live in `styles/abstracts`
+- Shared SCSS concerns (variables) live in `styles/abstracts`
 - Global resets/typography in `styles/base`
 
 ---

@@ -1,0 +1,34 @@
+export interface UserDetail {
+  id: string;
+  organization: string;
+  firstName: string;
+  lastName: string;
+  username: string;
+  email: string;
+  officeEmail: string;
+  phoneNumber: number;
+  bvn: number;
+  gender: string;
+  maritalStatus: string;
+  children: number;
+  typeOfResidence: string;
+  levelOfEducation: string;
+  employmentStatus: string;
+  sectorOfEmployment: string;
+  durationOfEmployment: string;
+  monthlyIncome: string;
+  loanRepayment: string;
+  accountBalance: string;
+  accountNumber: number;
+  bankName: string;
+  twitter: string;
+  facebook: string;
+  instagram: string;
+  guarantorFirstName: string;
+  guarantorLastName: string;
+  guarantorPhoneNumber: number;
+  guarantorEmail: string;
+  guarantorRelationship: string;
+  status: string;
+  dateJoined: string;
+}

@@ -2,7 +2,9 @@ import { useMemo, useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import StatCard from "../../components/Users/StatCard/StatCard";
 import FilterDropdown from "../../components/Users/Filter/FilterDropdown";
+import RowMenu from "../../components/Users/RowMenu/RowMenu";
 import Pagination from "../../components/common/Pagination/Pagination";
+import { formatDate, formatPhoneNumber } from "../../utils/formatters";
 import "./Users.scss";
 import usersData from "../../mock/users.json";
 import usersIcon from "../../assets/icons/users-page/users.png";
@@ -25,26 +27,6 @@ interface User {
   status: "Active" | "Inactive" | "Pending" | "Blacklisted";
 }
 
-function formatDate(dateString: string) {
-  const date = new Date(dateString);
-
-  return date.toLocaleString("en-US", {
-    month: "short",
-    day: "2-digit",
-    year: "numeric",
-    hour: "numeric",
-    minute: "2-digit",
-    hour12: true,
-  });
-}
-
-function formatPhoneNumber(phoneNumber: string | number) {
-  const digits = phoneNumber.toString();
-  if (digits.startsWith("0")) return digits;
-
-  return `0${digits}`;
-}
-
 const PAGE_SIZE = 10;
 
 export default function Users() {
@@ -59,6 +41,7 @@ export default function Users() {
   const phoneRef = useRef<HTMLImageElement | null>(null);
   const dayRef = useRef<HTMLImageElement | null>(null);
   const statusRef = useRef<HTMLImageElement | null>(null);
+  const userRefs = useRef<{ [key: string]: HTMLImageElement | null }>({});
   const users = usersData as User[];
 
   const [filters, setFilters] = useState({
@@ -297,6 +280,9 @@ export default function Users() {
                   <img
                     src={options}
                     className="options-icon"
+                    ref={(el) => {
+                      userRefs.current[user.id] = el;
+                    }}
                     onClick={() =>
                       setActiveRowMenu(
                         activeRowMenu === user.id ? null : user.id,
@@ -305,7 +291,10 @@ export default function Users() {
                   />
 
                   {activeRowMenu === user.id && (
-                    <div className="row-menu">
+                    <RowMenu
+                      anchorRef={{ current: userRefs.current[user.id] }}
+                      onClose={() => setActiveRowMenu(null)}
+                    >
                       <button
                         className="row-menu__item"
                         onClick={() => navigate(`/user-details/${user.id}`)}
@@ -313,17 +302,15 @@ export default function Users() {
                         <img src={viewDetails} />
                         View Details
                       </button>
-
                       <button className="row-menu__item">
                         <img src={blacklist} />
                         Blacklist User
                       </button>
-
                       <button className="row-menu__item">
                         <img src={activate} />
                         Activate User
                       </button>
-                    </div>
+                    </RowMenu>
                   )}
                 </td>
               </tr>
