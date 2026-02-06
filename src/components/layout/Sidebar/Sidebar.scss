@@ -71,6 +71,27 @@
   }
 }
 
+.sidebar__logout {
+  background: none;
+  border: none;
+  width: 100%;
+  color: $text-primary;
+  cursor: pointer;
+}
+
+.logout__divider {
+  border: none;
+  height: 1px;
+  background-color: rgba(84, 95, 125, 0.2);
+  margin: 16px 0;
+}
+
+.version {
+  padding: 30px 0 0 30px;
+  font-size: 12px;
+  color: #545f7d;
+}
+
 /* Mobile */
 @media (max-width: 768px) {
   .sidebar {

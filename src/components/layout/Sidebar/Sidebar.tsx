@@ -1,4 +1,6 @@
 import "./Sidebar.scss";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import badgePercent from "../../../assets/icons/sidebar/badge-percent.png";
 import bank from "../../../assets/icons/sidebar/bank.png";
 import briefcase from "../../../assets/icons/sidebar/briefcase.png";
@@ -20,6 +22,8 @@ import userCog from "../../../assets/icons/sidebar/user-cog.png";
 import users from "../../../assets/icons/sidebar/users.png";
 import userX from "../../../assets/icons/sidebar/user-x.png";
 import chevronDown from "../../../assets/icons/sidebar/chevron-down.png";
+import systemWheel from "../../../assets/icons/sidebar/system.png";
+import logout from "../../../assets/icons/sidebar/logout.png";
 
 interface SidebarProps {
   isOpen: boolean;
@@ -27,6 +31,14 @@ interface SidebarProps {
 }
 
 export default function Sidebar({ isOpen }: SidebarProps) {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("lendsqr_auth");
+    navigate("/");
+    toast.success("Logged out successfully");
+  };
+
   return (
     <aside className={`sidebar ${isOpen ? "sidebar--open" : ""}`}>
       <div className="sidebar__org-switch">
@@ -151,7 +163,23 @@ export default function Sidebar({ isOpen }: SidebarProps) {
             <img src={clipboardList} alt="Audit Logs Icon" />
             <span>Audit Logs</span>
           </a>
+
+          <a href="#" className="sidebar__link">
+            <img src={systemWheel} alt="Audit Logs Icon" />
+            <span>Systems Messages</span>
+          </a>
         </div>
+
+        <hr className="logout__divider" />
+        <button
+          className="sidebar__link sidebar__logout"
+          onClick={handleLogout}
+        >
+          <img src={logout} alt="Logout button" />
+          <span>Logout</span>
+        </button>
+
+        <span className="version">v1.2.0</span>
       </nav>
     </aside>
   );

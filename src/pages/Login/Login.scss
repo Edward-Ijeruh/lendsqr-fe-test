@@ -9,6 +9,9 @@
   &__logo img {
     width: 174px;
     height: 36px;
+    position: absolute;
+    top: 106px;
+    left: 97px;
   }
 
   &__content {
@@ -16,7 +19,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 80px;
-    margin-top: 100px;
+    margin-top: 150px;
   }
 
   &__image img {
@@ -109,6 +112,14 @@
 @media (max-width: 980px) {
   .login {
     padding: 20px;
+
+    &__logo img {
+      width: 174px;
+      height: 36px;
+      position: relative;
+      top: 0;
+      left: 0;
+    }
 
     &__content {
       flex-direction: column;
