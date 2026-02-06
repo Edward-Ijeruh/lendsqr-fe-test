@@ -30,13 +30,13 @@ src/
 ├── mock/
 ├── pages/
 ├── services/
-├── hooks/
-├── types/
 ├── styles/
+├── types/
 └── utils/
 ```
 
-- Each page/component has its own folder with `.tsx`, `.scss`, and `.test.tsx`
+- Each page/component has its own folder with `.tsx`, `.scss`
+- Login page has a `.test.tsx` in it's folder
 - Shared SCSS concerns (variables) live in `styles/abstracts`
 - Global resets/typography in `styles/base`
 

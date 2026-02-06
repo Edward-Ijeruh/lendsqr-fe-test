@@ -11,12 +11,12 @@ import logo from "../../assets/images/common/logo.svg";
 import loginIllustration from "../../assets/images/login/login-illustration.svg";
 import "./Login.scss";
 
-// Zod schema
 const loginSchema = z.object({
   email: z.string().email({ message: "Invalid email address" }),
   password: z
     .string()
-    .min(6, { message: "Password must be at least 6 characters" }),
+    .min(8, { message: "Password must be at least 8 characters" })
+    .regex(/\d/, { message: "Password must contain at least one number" }),
 });
 
 type LoginFormInputs = z.infer<typeof loginSchema>;

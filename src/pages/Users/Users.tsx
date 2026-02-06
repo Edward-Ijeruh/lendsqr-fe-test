@@ -296,6 +296,7 @@ export default function Users() {
                       onClose={() => setActiveRowMenu(null)}
                     >
                       <button
+                        data-testid={`view-details-${user.id}`}
                         className="row-menu__item"
                         onClick={() => navigate(`/user-details/${user.id}`)}
                       >

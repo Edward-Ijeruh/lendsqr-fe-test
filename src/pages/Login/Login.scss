@@ -73,18 +73,40 @@
 }
 
 /* Tablet */
-@media (max-width: 1024px) {
+@media (max-width: 1280px) {
   .login {
     padding: 30px 40px;
 
     &__content {
       gap: 40px;
     }
+
+    &__image img {
+      width: 100%;
+      max-width: 550px;
+      height: auto;
+    }
+  }
+}
+
+@media (max-width: 1130px) {
+  .login {
+    padding: 30px 40px;
+
+    &__content {
+      gap: 20px;
+    }
+
+    &__image img {
+      width: 100%;
+      max-width: 450px;
+      height: auto;
+    }
   }
 }
 
 /* Mobile */
-@media (max-width: 768px) {
+@media (max-width: 980px) {
   .login {
     padding: 20px;
 

@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import usersData from "../../mock/users.json";
 import { formatPhoneNumber } from "../../utils/formatters";
-import "./UserDetail.scss";
+import "./UserDetails.scss";
 import type { UserDetail } from "../../types/user";
 import Section from "../../components/UserDetails/Section/Section";
 import Detail from "../../components/UserDetails/Detail/Detail";
